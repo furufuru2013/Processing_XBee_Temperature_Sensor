@@ -1,3 +1,3 @@
 This is Processing source code.
-This program is view of XBee's temperature sensor nodes.
+This program is a viewer of XBee's temperature sensor nodes.
 

@@ -34,10 +34,10 @@ ArrayList sensorinfoes = new ArrayList();
 
 void setup() {
   // setup sensor infomation
-  sensorinfoes.add(new SensorInfo(0, "00:13:a2:00:40:86:bb:40", "TMP36GT9Z", "XB24-Z7CIT-004", "J-room", 1.2, 0.5));
+  sensorinfoes.add(new SensorInfo(0, "00:13:a2:00:40:86:bb:40", "TMP36GT9Z", "XB24-Z7CIT-004", "JS-room", 1.2, 0.5));
   sensorinfoes.add(new SensorInfo(1, "00:13:a2:00:40:89:1b:3f", "TMP36GT9Z", "XB24-Z7CIT-004", "outside", 1.2, 0.5));
-  sensorinfoes.add(new SensorInfo(5, "00:13:a2:00:40:99:97:92", "LM60BIZ",   "XB24-Z7PIT-004", "office", 1.2, 0.33));
-  sensorinfoes.add(new SensorInfo(6, "00:13:a2:00:40:89:1b:3f", "LM60BIZ",   "XB24-Z7CIT-004", "Unknown", 1.2, 0.5));
+  sensorinfoes.add(new SensorInfo(5, "00:13:a2:00:40:99:97:92", "LM60BIZ",   "XB24-Z7PIT-004", "study", 1.2, 0.33));
+  sensorinfoes.add(new SensorInfo(6, "00:13:a2:00:40:99:98:60", "LM60BIZ",   "XB24-Z7CIT-004", "desktop", 1.2, 0.33));
 /*
 24.4C  "LM60BIZ":488 "TMP36GT9Z":637
 488 / 1023 * 1.2 - b = 0.244
@@ -214,13 +214,15 @@ class Thermometer {
     textSize(10);
 
     // show sensor address:
-    text(address, posX-10, posY + sizeY + bulbSize + stemSize + 4, 65, 40);
+    text(address, posX-10, posY + sizeY + bulbSize + stemSize +12, 65, 40);
     
     // show sensor number by @f
     textAlign(CENTER);
-    text("#" + ((SensorInfo)sensorinfoes.get(sensor_id)).id, posX-12, posY + sizeY + bulbSize + 6, 65, 40);
-    text(((SensorInfo)sensorinfoes.get(sensor_id)).place,    posX-12, posY + sizeY + bulbSize + 16, 65, 40);
-    
+    text("#" + ((SensorInfo)sensorinfoes.get(sensor_id)).id
+                                                        , posX-12, posY + sizeY + bulbSize + 6, 65, 40);
+    text(((SensorInfo)sensorinfoes.get(sensor_id)).place, posX-12, posY + sizeY + bulbSize + 16, 65, 40);
+    text("[" + ((SensorInfo)sensorinfoes.get(sensor_id)).sensor_name + "]"
+                                                        , posX-12, posY + sizeY + bulbSize + 26, 65, 40);
     // show maximum temperature: 
     textAlign(LEFT);
     text(maxTemp + "˚C", posX+sizeX + 5, posY); 
